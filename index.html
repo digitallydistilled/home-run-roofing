@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Home Run Roofing USA | Roofing in Tampa &amp; Tampa Bay, FL | Coming Soon</title>
 <meta name="description" content="Home Run Roofing USA is a new, newly licensed roofing company led by Louis Marino, a roofer with 20+ years of hands-on experience. Roof analysis, repair and replacement, plus expert diagnosis of gutter, masonry and exterior issues. Serving Tampa and Hillsborough, Pinellas, Pasco, Hernando, Citrus, Polk and Manatee counties, FL.">
-<meta name="theme-color" content="#0b2545">
+<meta name="theme-color" content="#081a33">
 
 <!-- Geo tags -->
 <meta name="geo.region" content="US-FL">
@@ -68,331 +68,427 @@
   :root{
     --navy:#0b2545;
     --navy-2:#13315c;
+    --navy-3:#081a33;
     --red:#d62828;
+    --red-text:#c1121f;
     --cream:#f7f3e8;
+    --warm:#efe7d3;
+    --ink-soft:#3b4d6b;
     --muted:#b9c4d6;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
+  html{scroll-behavior:smooth}
   body{
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  .wrap{width:100%;max-width:960px;margin:0 auto;padding:0 24px}
+  a:focus-visible,.btn:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-weight:800;text-decoration:none;
+    padding:16px 32px;border-radius:12px;font-size:1.05rem;
+    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(214,40,40,.35)}
+  .btn-red:hover{background:#e23636}
+  .btn-cream{background:var(--cream);color:var(--navy)}
+  .btn-cream:hover{background:#fff}
+  .btn-sm{padding:10px 18px;font-size:.92rem;border-radius:999px;box-shadow:none}
+  .btn-sm svg{width:17px;height:17px}
+
+  /* ---------- Sticky top bar ---------- */
+  .top{
+    position:sticky;top:0;z-index:50;
+    background:rgba(8,26,51,.94);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(247,243,232,.1);
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    color:var(--cream);text-decoration:none;
+    font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:.82rem;
+  }
+  .brand svg{width:34px;height:auto;flex:none}
+  .call-top .short{display:none}
+
+  /* ---------- Hero (navy) ---------- */
+  .hero{
+    position:relative;
     color:var(--cream);
+    text-align:center;
+    padding:72px 0 120px;
     background:
       radial-gradient(1200px 600px at 50% -10%, var(--navy-2) 0%, transparent 70%),
       var(--navy);
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    overflow-x:hidden;
+    /* bottom edge shaped like home plate */
+    clip-path:polygon(0 0,100% 0,100% calc(100% - 52px),50% 100%,0 calc(100% - 52px));
   }
-  body::before{
-    content:"";
-    position:fixed;inset:0;
+  .hero::before{
+    content:"";position:absolute;inset:0;
     background-image:
       linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
     background-size:56px 28px;
     pointer-events:none;
-    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 85%);
     -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 85%);
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 85%);
   }
-  main{
-    position:relative;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    padding:56px 24px 40px;
-  }
-  .logo{width:104px;height:auto;margin-bottom:26px;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}
+  .hero .wrap{position:relative;display:flex;flex-direction:column;align-items:center}
   .badge{
-    display:inline-block;
-    background:var(--red);
-    color:#fff;
-    font-weight:800;
-    font-size:.78rem;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    padding:8px 16px;
-    border-radius:999px;
-    margin-bottom:22px;
+    display:inline-block;background:var(--red);color:#fff;
+    font-weight:800;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    padding:8px 16px;border-radius:999px;margin-bottom:22px;
   }
   h1{
-    font-size:clamp(2.4rem,7vw,5rem);
-    line-height:1.02;
-    font-weight:900;
-    letter-spacing:-.02em;
-    text-transform:uppercase;
+    font-size:clamp(2.5rem,7.5vw,5rem);
+    line-height:1.02;font-weight:900;letter-spacing:-.02em;text-transform:uppercase;
   }
   h1 span{color:var(--red);display:block}
   .tagline{
-    margin-top:22px;
-    max-width:640px;
-    font-size:clamp(1.05rem,2.4vw,1.3rem);
-    line-height:1.55;
-    color:var(--muted);
+    margin-top:22px;max-width:640px;
+    font-size:clamp(1.05rem,2.4vw,1.28rem);line-height:1.55;color:var(--muted);
   }
   .tagline strong{color:var(--cream)}
-
-  .stats{
-    margin-top:38px;
-    display:flex;gap:44px;flex-wrap:wrap;justify-content:center;
-  }
+  .hero-cta{margin-top:32px}
+  .stats{margin-top:40px;display:flex;gap:44px;flex-wrap:wrap;justify-content:center}
   .stat b{display:block;font-size:2rem;font-weight:900;color:var(--cream)}
-  .stat span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
   .stat b em{color:var(--red);font-style:normal}
+  .stat span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-  .panel{
-    width:100%;
-    max-width:760px;
-    margin-top:44px;
-    padding:30px 28px;
-    border:1px solid rgba(247,243,232,.14);
-    background:rgba(255,255,255,.04);
-    border-radius:16px;
-    text-align:left;
+  /* ---------- Cream sections ---------- */
+  .band{padding:76px 0}
+  .band.cream{background:var(--cream)}
+  .band.warm{background:var(--warm)}
+  .band.first{padding-top:56px}
+  .eyebrow{
+    color:var(--red-text);font-weight:800;font-size:.78rem;
+    letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;
   }
-  .panel h2{
-    font-size:.8rem;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    color:var(--red);
-    font-weight:800;
-    margin-bottom:12px;
+  h2{
+    font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.15;letter-spacing:-.01em;
+    color:var(--navy);margin-bottom:18px;
   }
-  .panel h3{
-    font-size:clamp(1.3rem,3vw,1.7rem);
-    line-height:1.2;
-    margin-bottom:12px;
-  }
-  .panel p{color:var(--muted);line-height:1.65;font-size:1.02rem}
-  .panel p + p{margin-top:12px}
-  .panel p strong{color:var(--cream)}
+  .copy p{color:var(--ink-soft);font-size:1.05rem;line-height:1.7;max-width:64ch}
+  .copy p + p{margin-top:14px}
+  .copy strong{color:var(--navy)}
 
-  .pills{
-    margin-top:16px;
-    display:flex;flex-wrap:wrap;gap:10px;
+  /* Meet Louis: photo + copy */
+  .meet{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:56px;align-items:center}
+  .photo{
+    position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;
+    background:linear-gradient(160deg,var(--navy-2),var(--navy-3));
+    box-shadow:0 22px 44px rgba(11,37,69,.28);
+    border:5px solid #fff;
   }
-  .pills.center{justify-content:center}
-  .pills li{
-    list-style:none;
-    border:1px solid rgba(247,243,232,.22);
-    background:rgba(255,255,255,.05);
-    padding:8px 15px;
-    border-radius:999px;
-    font-size:.93rem;
-    font-weight:600;
+  .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  /* shown automatically if louis.jpg is missing */
+  .photo .ph{
+    position:absolute;inset:0;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;color:var(--cream);
+    text-align:center;padding:20px;
   }
-  .pills.counties li{border-color:rgba(214,40,40,.55);background:rgba(214,40,40,.12)}
-  .pills.cities li{font-size:.82rem;font-weight:500;padding:6px 12px;color:var(--muted)}
-  .small-label{
-    margin-top:20px;
-    font-size:.72rem;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:var(--muted);
-    font-weight:700;
-  }
-  .cards{
-    margin-top:22px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:14px;
-  }
+  .photo .ph svg{width:96px;height:auto;opacity:.95}
+  .photo .ph span{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:700}
+  .photo-cap{margin-top:14px;text-align:center;line-height:1.3}
+  .photo-cap b{display:block;font-size:1.05rem}
+  .photo-cap span{font-size:.86rem;color:var(--ink-soft)}
+
+  /* Cards */
+  .cards{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
   .card{
-    border:1px solid rgba(247,243,232,.14);
-    background:rgba(11,37,69,.55);
-    border-radius:12px;
-    padding:16px 16px 18px;
+    background:#fff;border:1px solid rgba(11,37,69,.1);border-top:4px solid var(--red);
+    border-radius:14px;padding:20px 20px 22px;
   }
-  .card h4{
-    font-size:1rem;
-    color:var(--cream);
-    margin-bottom:6px;
-    display:flex;align-items:center;gap:8px;
-  }
-  .card h4::before{
-    content:"";
-    width:8px;height:8px;border-radius:50%;
-    background:var(--red);
-    flex:none;
-  }
-  .card p{font-size:.92rem;line-height:1.55}
-  .services{margin-top:44px;max-width:760px}
-  .services .small-label{margin-top:0;text-align:center}
+  .card h3{font-size:1.05rem;margin-bottom:8px;color:var(--navy)}
+  .card p{font-size:.95rem;line-height:1.6;color:var(--ink-soft)}
 
-  .contact{margin-top:40px}
-  .btn{
-    display:inline-block;
-    background:var(--cream);
-    color:var(--navy);
-    font-weight:800;
-    text-decoration:none;
-    padding:15px 30px;
-    border-radius:10px;
-    transition:transform .15s ease, background .15s ease;
+  .label{
+    margin-top:30px;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:800;
   }
-  .btn:hover{transform:translateY(-2px);background:#fff}
-  .btn:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+  .label.first{margin-top:0}
+
+  /* Pills */
+  .pills{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+  .pills li{
+    list-style:none;background:#fff;color:var(--navy);
+    border:1px solid rgba(11,37,69,.2);
+    padding:8px 15px;border-radius:999px;font-size:.93rem;font-weight:600;
+  }
+  .pills.counties li{background:rgba(214,40,40,.08);border-color:rgba(193,18,31,.45)}
+  .pills.cities li{font-size:.84rem;font-weight:500;padding:6px 12px;color:var(--ink-soft)}
+
+  /* Mid-page call strip */
+  .inline-cta{
+    margin-top:44px;padding:24px 28px;border-radius:16px;
+    background:var(--navy);color:var(--cream);
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  }
+  .inline-cta p{font-size:1.15rem;font-weight:700;line-height:1.35;max-width:420px}
+  .inline-cta p span{display:block;font-weight:500;font-size:.95rem;color:var(--muted);margin-top:4px}
+  @media (max-width:560px){
+    .inline-cta{flex-direction:column;align-items:stretch;text-align:center}
+    .inline-cta p{max-width:none}
+  }
+
+  /* ---------- Bottom CTA (navy) ---------- */
+  .cta{background:var(--navy);color:var(--cream);text-align:center;padding:76px 0}
+  .cta h2{color:var(--cream);margin-bottom:14px}
+  .cta p{color:var(--muted);max-width:560px;margin:0 auto 28px;font-size:1.08rem;line-height:1.65}
+
   footer{
-    position:relative;
-    text-align:center;
-    padding:22px 16px 28px;
-    font-size:.85rem;
-    color:var(--muted);
-    border-top:1px solid rgba(247,243,232,.1);
+    background:var(--navy-3);color:var(--muted);text-align:center;
+    padding:22px 16px 28px;font-size:.85rem;
   }
-  @media (max-width:480px){
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:760px){
+    .meet{grid-template-columns:1fr;gap:30px}
+    .photo-wrap{max-width:320px;margin:0 auto;width:100%}
+    .band{padding:60px 0}
+  }
+  @media (max-width:560px){
+    .call-top .full{display:none}
+    .call-top .short{display:inline}
+    .brand{font-size:.74rem}
     .stats{gap:26px}
-    .logo{width:88px}
-    .panel{padding:24px 20px}
+    .hero{padding:56px 0 108px}
   }
   @media (prefers-reduced-motion:no-preference){
-    .logo,.badge,h1,.tagline,.stats,.panel,.services,.contact{animation:rise .7s ease both}
+    .badge,h1,.tagline,.hero-cta,.stats{animation:rise .7s ease both}
     .badge{animation-delay:.05s}h1{animation-delay:.12s}.tagline{animation-delay:.2s}
-    .stats{animation-delay:.28s}.panel{animation-delay:.36s}.services{animation-delay:.44s}.contact{animation-delay:.5s}
+    .hero-cta{animation-delay:.28s}.stats{animation-delay:.36s}
     @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   }
 </style>
 </head>
 <body>
-<main>
-  <svg class="logo" viewBox="0 0 120 110" role="img" aria-label="Home Run Roofing USA logo">
-    <path d="M8 56 60 12l52 44" fill="none" stroke="#d62828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M24 56h72v10L60 100 24 66z" fill="#f7f3e8"/>
-    <path d="M42 70h36" stroke="#0b2545" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="60" cy="42" r="7" fill="#f7f3e8"/>
-  </svg>
 
-  <div class="badge">Coming Soon</div>
-
-  <h1>Home Run<span>Roofing USA</span></h1>
-
-  <p class="tagline">
-    Led by <strong>Louis Marino</strong>: <strong>20+ years on Tampa Bay roofs</strong>,
-    now licensed and building his own company as the go-to expert for
-    roofs and everything on your home's exterior.
-  </p>
-
-  <div class="stats">
-    <div class="stat"><b>20<em>+</em></b><span>Years on the Roof</span></div>
-    <div class="stat"><b>Newly</b><span>Licensed</span></div>
-    <div class="stat"><b>Tampa</b><span>Based</span></div>
+<!-- Call button lives in the top bar so it's always one tap away -->
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Home Run Roofing USA">
+      <svg viewBox="0 0 120 110" aria-hidden="true">
+        <path d="M8 56 60 12l52 44" fill="none" stroke="#d62828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M24 56h72v10L60 100 24 66z" fill="#f7f3e8"/>
+        <path d="M42 70h36" stroke="#0b2545" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="60" cy="42" r="7" fill="#f7f3e8"/>
+      </svg>
+      <span>Home Run Roofing USA</span>
+    </a>
+    <a class="btn btn-red btn-sm call-top" href="tel:+18135007121">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span class="full">Call Louis: (813) 500-7121</span>
+      <span class="short">Call Louis</span>
+    </a>
   </div>
+</header>
 
-  <section class="panel" aria-labelledby="meet-louis">
-    <h2 id="meet-louis">New company. Seasoned roofer.</h2>
-    <h3>The company is new. The experience isn't.</h3>
-    <p>
-      Home Run Roofing USA is just getting started, but <strong>Louis Marino has been
-      roofing in Tampa Bay for more than 20 years</strong>. He has seen what holds up
-      under Florida sun, storms and hurricane season, and what doesn't.
-    </p>
-    <p>
-      Now that he's licensed and running his own company, that hands-on know-how is
-      the whole point: honest assessments, work done right, and a roofer you can
-      actually talk to, from the first call to the last shingle.
-    </p>
-  </section>
+<!-- HERO (navy) -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="badge">Coming Soon</div>
 
-  <section class="panel" aria-labelledby="exterior-expert">
-    <h2 id="exterior-expert">More than roofs</h2>
-    <h3>Your go-to expert for everything on your home's exterior.</h3>
-    <p>
-      Florida's heat, UV and heavy rain are hard on a house, and your roof, gutters,
-      masonry and the details that tie them together all work as one system. A
-      problem in one place usually shows up in another. Louis looks at the
-      <strong>whole picture</strong>, not just the shingles.
-    </p>
-    <p>
-      He'll <strong>diagnose</strong> what's really going on, <strong>explain it in
-      plain English</strong>, and lay out the right fix. And even when the repair
-      isn't something he does himself, he'll connect you with
-      <strong>trusted, insured and licensed contractors</strong> from his network,
-      so you're never left guessing who to call.
+    <h1>Home Run<span>Roofing USA</span></h1>
+
+    <p class="tagline">
+      Led by <strong>Louis Marino</strong>: <strong>20+ years on Tampa Bay roofs</strong>,
+      now licensed and building his own company as the go-to expert for
+      roofs and everything on your home's exterior.
     </p>
 
-    <p class="small-label">What Louis knows how to spot</p>
-    <div class="cards">
-      <div class="card">
-        <h4>Dead &amp; poorly built valleys</h4>
-        <p>Valleys that trap water and debris instead of shedding it quietly rot decking and leak long before anyone sees a stain.</p>
+    <div class="hero-cta">
+      <a class="btn btn-red" href="tel:+18135007121">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Call Louis: (813) 500-7121
+      </a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>20<em>+</em></b><span>Years on the Roof</span></div>
+      <div class="stat"><b>Newly</b><span>Licensed</span></div>
+      <div class="stat"><b>Tampa</b><span>Based</span></div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- MEET LOUIS (cream) -->
+  <section class="band cream first" aria-labelledby="meet-louis">
+    <div class="wrap meet">
+      <div class="photo-wrap">
+        <figure>
+          <div class="photo">
+            <!-- Placeholder shows automatically until louis.jpg is added to the same folder as this file -->
+            <div class="ph" aria-hidden="true">
+              <svg viewBox="0 0 120 110">
+                <path d="M8 56 60 12l52 44" fill="none" stroke="#d62828" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M24 56h72v10L60 100 24 66z" fill="#f7f3e8"/>
+                <path d="M42 70h36" stroke="#0b2545" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="60" cy="42" r="7" fill="#f7f3e8"/>
+              </svg>
+              <span>Louis Marino</span>
+            </div>
+            <img src="louis.jpg" width="800" height="1000" alt="Louis Marino, owner of Home Run Roofing USA" onerror="this.remove()">
+          </div>
+          <figcaption class="photo-cap">
+            <b>Louis Marino</b>
+            <span>Owner &middot; 20+ years roofing Tampa Bay</span>
+          </figcaption>
+        </figure>
       </div>
-      <div class="card">
-        <h4>Pitch &amp; layout mistakes</h4>
-        <p>Bad calls by previous roofers on how pitches and valleys were set up and shingled can turn into high-dollar repairs years down the road.</p>
-      </div>
-      <div class="card">
-        <h4>Heat &amp; UV wear</h4>
-        <p>Cracking, curling and granule loss from relentless Florida sun, caught early enough to plan for instead of panic over.</p>
-      </div>
-      <div class="card">
-        <h4>Flashing &amp; water intrusion</h4>
-        <p>Where roofs meet walls, chimneys and penetrations is where water finds its way in. Louis traces leaks back to the real source.</p>
-      </div>
-      <div class="card">
-        <h4>Gutter problems</h4>
-        <p>Clogged, sagging or poorly pitched gutters send water into fascia, soffits and foundations instead of away from the house.</p>
-      </div>
-      <div class="card">
-        <h4>Masonry &amp; stucco issues</h4>
-        <p>Cracked stucco, failing mortar and chimney or parapet trouble let moisture in, and they're often tied directly to the roof above.</p>
+
+      <div class="copy">
+        <p class="eyebrow">New company. Seasoned roofer.</p>
+        <h2 id="meet-louis">The company is new. The experience isn't.</h2>
+        <p>
+          Home Run Roofing USA is just getting started, but <strong>Louis Marino has been
+          roofing in Tampa Bay for more than 20 years</strong>. He has seen what holds up
+          under Florida sun, storms and hurricane season, and what doesn't.
+        </p>
+        <p>
+          Now that he's licensed and running his own company, that hands-on know-how is
+          the whole point: honest assessments, work done right, and a roofer you can
+          actually talk to, from the first call to the last shingle.
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="panel" aria-labelledby="service-area">
-    <h2 id="service-area">Service Area</h2>
-    <h3>Based in Tampa. Serving the whole Bay area.</h3>
-    <p>
-      Louis lives in Tampa (Hillsborough County), and Home Run Roofing USA serves
-      homeowners and businesses across the surrounding counties as well.
-    </p>
-    <p class="small-label">Counties</p>
-    <ul class="pills counties" aria-label="Counties served">
-      <li>Hillsborough</li>
-      <li>Pinellas</li>
-      <li>Pasco</li>
-      <li>Hernando</li>
-      <li>Citrus</li>
-      <li>Polk</li>
-      <li>Manatee</li>
-      <li>+ Surrounding Areas</li>
-    </ul>
-    <p class="small-label">Cities &amp; communities</p>
-    <ul class="pills cities" aria-label="Cities served">
-      <li>Tampa</li>
-      <li>St. Petersburg</li>
-      <li>Clearwater</li>
-      <li>Brandon</li>
-      <li>Riverview</li>
-      <li>Plant City</li>
-      <li>Wesley Chapel</li>
-      <li>Land O' Lakes</li>
-      <li>Spring Hill</li>
-      <li>Lakeland</li>
-      <li>Bradenton</li>
-    </ul>
+  <!-- MORE THAN ROOFS (warm cream) -->
+  <section class="band warm" aria-labelledby="exterior-expert">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">More than roofs</p>
+        <h2 id="exterior-expert">Your go-to expert for everything on your home's exterior.</h2>
+        <p>
+          Florida's heat, UV and heavy rain are hard on a house, and your roof, gutters,
+          masonry and the details that tie them together all work as one system. A
+          problem in one place usually shows up in another. Louis looks at the
+          <strong>whole picture</strong>, not just the shingles.
+        </p>
+        <p>
+          He'll <strong>diagnose</strong> what's really going on, <strong>explain it in
+          plain English</strong>, and lay out the right fix. And even when the repair
+          isn't something he does himself, he'll connect you with
+          <strong>trusted, insured and licensed contractors</strong> from his network,
+          so you're never left guessing who to call.
+        </p>
+      </div>
+
+      <p class="label" style="margin-top:34px">What Louis knows how to spot</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Dead &amp; poorly built valleys</h3>
+          <p>Valleys that trap water and debris instead of shedding it quietly rot decking and leak long before anyone sees a stain.</p>
+        </div>
+        <div class="card">
+          <h3>Pitch &amp; layout mistakes</h3>
+          <p>Bad calls by previous roofers on how pitches and valleys were set up and shingled can turn into high-dollar repairs years down the road.</p>
+        </div>
+        <div class="card">
+          <h3>Heat &amp; UV wear</h3>
+          <p>Cracking, curling and granule loss from relentless Florida sun, caught early enough to plan for instead of panic over.</p>
+        </div>
+        <div class="card">
+          <h3>Flashing &amp; water intrusion</h3>
+          <p>Where roofs meet walls, chimneys and penetrations is where water finds its way in. Louis traces leaks back to the real source.</p>
+        </div>
+        <div class="card">
+          <h3>Gutter problems</h3>
+          <p>Clogged, sagging or poorly pitched gutters send water into fascia, soffits and foundations instead of away from the house.</p>
+        </div>
+        <div class="card">
+          <h3>Masonry &amp; stucco issues</h3>
+          <p>Cracked stucco, failing mortar and chimney or parapet trouble let moisture in, and they're often tied directly to the roof above.</p>
+        </div>
+      </div>
+
+      <p class="label">What we'll do</p>
+      <ul class="pills" aria-label="Services">
+        <li>Roof Replacement</li>
+        <li>Roof Repair</li>
+        <li>Storm Damage</li>
+        <li>Roof Inspections &amp; Analysis</li>
+        <li>Gutter &amp; Masonry Diagnosis</li>
+        <li>Exterior Problem-Solving</li>
+        <li>Trusted Contractor Referrals</li>
+        <li>Residential &amp; Commercial</li>
+      </ul>
+
+      <div class="inline-cta">
+        <p>Not sure what's going on with your roof?
+          <span>Call Louis and get a straight answer.</span></p>
+        <a class="btn btn-red" href="tel:+18135007121">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          Call (813) 500-7121
+        </a>
+      </div>
+    </div>
   </section>
 
-  <section class="services" aria-label="Services">
-    <p class="small-label">What we'll do</p>
-    <ul class="pills center">
-      <li>Roof Replacement</li>
-      <li>Roof Repair</li>
-      <li>Storm Damage</li>
-      <li>Roof Inspections &amp; Analysis</li>
-      <li>Gutter &amp; Masonry Diagnosis</li>
-      <li>Exterior Problem-Solving</li>
-      <li>Trusted Contractor Referrals</li>
-      <li>Residential &amp; Commercial</li>
-    </ul>
+  <!-- SERVICE AREA (cream) -->
+  <section class="band cream" aria-labelledby="service-area">
+    <div class="wrap">
+      <div class="copy">
+        <p class="eyebrow">Service Area</p>
+        <h2 id="service-area">Based in Tampa. Serving the whole Bay area.</h2>
+        <p>
+          Louis lives in Tampa (Hillsborough County), and Home Run Roofing USA serves
+          homeowners and businesses across the surrounding counties as well.
+        </p>
+      </div>
+      <p class="label">Counties</p>
+      <ul class="pills counties" aria-label="Counties served">
+        <li>Hillsborough</li>
+        <li>Pinellas</li>
+        <li>Pasco</li>
+        <li>Hernando</li>
+        <li>Citrus</li>
+        <li>Polk</li>
+        <li>Manatee</li>
+        <li>+ Surrounding Areas</li>
+      </ul>
+      <p class="label">Cities &amp; communities</p>
+      <ul class="pills cities" aria-label="Cities served">
+        <li>Tampa</li>
+        <li>St. Petersburg</li>
+        <li>Clearwater</li>
+        <li>Brandon</li>
+        <li>Riverview</li>
+        <li>Plant City</li>
+        <li>Wesley Chapel</li>
+        <li>Land O' Lakes</li>
+        <li>Spring Hill</li>
+        <li>Lakeland</li>
+        <li>Bradenton</li>
+      </ul>
+    </div>
   </section>
 
-  <div class="contact">
-    <a class="btn" href="tel:+18135007121">Call Louis: (813) 500-7121</a>
-  </div>
+  <!-- BOTTOM CTA (navy) -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="wrap">
+      <h2 id="cta-title">Got a roof or exterior question? Talk to Louis.</h2>
+      <p>
+        Whether it's a leak, an aging roof, or something that just doesn't look right,
+        Louis will give you a straight answer and point you in the right direction.
+      </p>
+      <a class="btn btn-cream" href="tel:+18135007121">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        Call Louis: (813) 500-7121
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer>
